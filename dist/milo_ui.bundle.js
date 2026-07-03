@@ -2531,6 +2531,7 @@ function onAddBtn (type, event) {
     var trimmedLabel = this._comboInput.el.value.trim();
     if (!trimmedLabel) {
         this.toggleAddButton(false, { preserveState: true });
+        this.__showAddOnClick = false;
         return;
     }
     var data = { label: trimmedLabel };

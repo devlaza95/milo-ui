@@ -2491,7 +2491,10 @@ function _onMouseLeave() {
         });
         return; // should stop as before
     }
-    this.toggleAddButton(false, { preserveState: true });
+    // DM-2718: keep the "Create new ...?" prompt + Add button visible when the mouse
+    // leaves and the dropdown collapses, as long as the typed text is a valid new entry.
+    // Deriving visibility from the live text (rather than blanking it) matches onInputClick.
+    _refreshAddButton.call(this);
 }
 
 
